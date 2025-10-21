@@ -52,20 +52,24 @@ It dynamically constructs complex aggregation logic (`scripted_metric`) for **Nu
 - Required libraries:
   ```bash
   pip install pandas openpyxl
-▶️ Run the Script
 
-Place your rule definitions in rules.xlsx
+### ▶️ Run the Script
+- Place your rule definitions in rules.xlsx
+- Update the input/output paths in main.py
 
-Update the input/output paths in main.py
-
-Run:  
-python main.py
-Output:
-✅ Dynamic painless JSON generated successfully → generated_painless.json
-
+### Run:  
+  ```bash
+  python main.py
+  ```
+### Output:
+```bash
+ ✅ Dynamic painless JSON generated successfully → generated_painless.json
+```
 ---
 
 ### Example Output
+
+```json
 {
   "aggs": {
     "group_by_sl_met": {
@@ -87,21 +91,21 @@ Output:
     }
   }
 }
-
+```
 ---
 
 ### 🧱  Customization
-Change column names (ColA, ColB, etc.) in your Excel as per your dataset.
-Add or remove filters — the parser automatically adjusts.
-Modify reduce_script logic if you want a different metric computation.
+- Change column names (ColA, ColB, etc.) in your Excel as per your dataset.
+- Add or remove filters — the parser automatically adjusts.
+- Modify reduce_script logic if you want a different metric computation.
 
 ---
 
 ### 🧑‍💻 Author
 
-Harsh Kumar
-Software Engineer
-📧 [Add your email or LinkedIn here if you’d like]
+***Harsh Kumar***  
+Software Engineer  
+📧 [www.linkedin.com/in/sbharsh]
 
 ---
 
