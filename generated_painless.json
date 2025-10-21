@@ -1,0 +1,29 @@
+{
+    "aggs": {
+        "group_by_sl_met": {
+            "scripted_metric": {
+                "map_script": "if(params['_source']['A (ColA Name)']!= 'val1' && params['_source']['B (ColB Name)'] == 'val2' && params['_source']['D (ColD Name)'] == 'val3' && params['_source']['C (ColC Name)'] == 'val4' && params['_source']['K (ColK Name)'] == 'val5'){state.map.var += (doc['ColL Name'].value);state.map.var1 += (doc['ColJ Name'].value);state.map.var2++;}  if(params['_source']['A (ColA Name)']!= 'val1' && params['_source']['B (ColB Name)'] == 'val2' && params['_source']['D (ColD Name)'] == 'val3' && params['_source']['C (ColC Name)'] == 'val4' && params['_source']['K (ColK Name)'] == 'val5'){state.map.var += (doc['ColL Name'].value);state.map.var1 += (doc['ColJ Name'].value);state.map.var2++;}",
+                "init_script": "state['map'] =['var': 0.0,'var1' : 0.0,'var2' : 0.0]",
+                "reduce_script": "def return_map = ['Final_Performance': 0.0,'Final_Numerator': 0.0, 'Final_Denominator': 0.0]; def new_map = ['num1': 0.0, 'num2': 0.0, 'num3': 0.0, 'num': 0.0, 'den': 0.0]; for(a in states){new_map.num1 += (a.map.var); new_map.num2 += (a.map.var1); new_map.num3 += (a.map.var2); new_map.num = (new_map.num1*((new_map.num2/new_map.num3)*100))/100.00; new_map.den += a.map.var;} if(new_map.den!=0){return_map.Final_Performance = Math.floor((float)(new_map.num)/(new_map.den)*10000.0)/100.0}else{return_map.Final_Performance ='';return_map.SL_Met=5;}return_map.Final_Denominator = new_map.den;return_map.Final_Numerator = new_map.num; return return_map;",
+                "combine_script": "return state"
+            }
+        }
+    },
+    "size": 0,
+    "query": {
+        "bool": {
+            "must": [
+                {
+                    "match": {
+                        "childslaId": "childSLAId"
+                    }
+                },
+                {
+                    "match": {
+                        "useInComputation": true
+                    }
+                }
+            ]
+        }
+    }
+}
