@@ -56,15 +56,13 @@ It dynamically constructs complex aggregation logic (`scripted_metric`) for **Nu
 ### ▶️ Run the Script
 - Place your rule definitions in rules.xlsx
 - Update the input/output paths in main.py
-
-### Run:  
+- Run:  
   ```bash
   python main.py
-  ```
-### Output:
-```bash
- ✅ Dynamic painless JSON generated successfully → generated_painless.json
-```
+- Output:
+  ```bash
+  ✅ Dynamic painless JSON generated successfully → generated_painless.json
+ 
 ---
 
 ### Example Output
@@ -101,16 +99,17 @@ It dynamically constructs complex aggregation logic (`scripted_metric`) for **Nu
 
 ---
 
-### 🧑‍💻 Author
-
-***Harsh Kumar***  
-Software Engineer  
-📧 [www.linkedin.com/in/sbharsh]
-
----
-
 ### 🌟 Acknowledgements
 
-Elasticsearch for the Painless scripting framework
-Pandas + OpenPyXL for robust Excel parsing
-Python community for making automation so accessible
+- Elasticsearch for the Painless scripting framework  
+- Pandas + OpenPyXL for robust Excel parsing  
+- Python community for making automation so accessible  
+
+---
+<div align="center">
+<strong>Harsh Kumar</strong> © 2025
+
+---
+</div>
+
+
